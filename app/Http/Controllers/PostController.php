@@ -17,34 +17,34 @@ class PostController extends Controller
 
     public function show(Post $post): Response
     {
-        return Inertia::render('Posts/PostShow', compact('post'));
+        return Inertia::render('Post/PostShow', compact('post'));
     }
 
     public function create(): Response
     {
-        return Inertia::render('Posts/PostCreate');
+        return Inertia::render('Post/PostCreate');
     }
 
     public function store(Request $request): Response
     {
         $post = Post::create($request->all());
-        return Inertia::render('Posts/PostShow', compact('post'));
+        return Inertia::render('Post/PostShow', compact('post'));
     }
 
     public function edit(Post $post): Response
     {
-        return Inertia::render('Posts/PostEdit', compact('post'));
+        return Inertia::render('Post/PostEdit', compact('post'));
     }
 
     public function update(Request $request, Post $post): Response
     {
         $post->update($request->all());
-        return Inertia::render('Posts/PostShow', compact('post'));
+        return Inertia::render('Post/PostShow', compact('post'));
     }
 
     public function destroy(Post $post): Response
     {
         $post->delete();
-        return Inertia::render('Posts/PostIndex');
+        return Inertia::render('Post/PostIndex');
     }
 }
